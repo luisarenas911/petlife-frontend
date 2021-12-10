@@ -10,6 +10,8 @@ import { selectVets } from "../store/vet/selectors";
 import { postProcedure } from "../store/pet/actions";
 import { selectToken } from "../store/user/selectors";
 import MuiAlert from "@material-ui/lab/Alert";
+import { selectUsers } from "../store/user/selectors";
+import { fetchUsers } from "../store/user/actions";
 
 import {
   Button,
@@ -67,14 +69,16 @@ export default function DetailPet() {
   const procedureTypes = useSelector(selectProcedureTypes);
   const petId = parseInt(useParams().id);
   const token = useSelector(selectToken);
-  const vets = useSelector(selectVets);
+  const users = useSelector(selectUsers);
+
   const [open, setOpen] = useState(false);
   const [openAlert, setOpenAlert] = useState(false);
   const [vetId, setVetId] = useState(1);
   const [procedureTypeId, setProcedureTypeId] = useState(1);
   const [observations, setObservations] = useState("");
-
   const dispatch = useDispatch();
+
+  const vets = users.filter((user) => user.isVet);
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -87,6 +91,7 @@ export default function DetailPet() {
     dispatch(fetchDetailPet(petId));
     dispatch(fetchProcedureTypes);
     dispatch(fetchVets);
+    dispatch(fetchUsers);
   }, [dispatch, petId]);
 
   return (

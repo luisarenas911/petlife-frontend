@@ -95,6 +95,23 @@ export const fetchUsers = async (dispatch, getSate) => {
   }
 };
 
+export const addUser = (user) => {
+  return {
+    type: "ADD_USER_DETAIL",
+    payload: user,
+  };
+};
+
+export function fetchUser(userId) {
+  return async function thunk(dispatch, getSate) {
+    try {
+      const response = await axios.get(`http://localhost:4000/users/${userId}`);
+      dispatch(addUser(response.data));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+}
 export const getUserWithStoredToken = () => {
   return async (dispatch, getState) => {
     // get token from the state

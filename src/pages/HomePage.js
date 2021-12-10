@@ -3,6 +3,7 @@ import { fetchVets } from "../store/vet/actions";
 import { useEffect } from "react";
 import { selectVets } from "../store/vet/selectors";
 import { Container, Row, Card, Col } from "react-bootstrap";
+import logo from "../logo/ASD.png";
 
 import {
   makeStyles,
@@ -36,8 +37,12 @@ export default function HomePage() {
   }, [dispatch]);
   return (
     <div>
-      <h2>Vets</h2>
-
+      <img
+        src={logo}
+        alt="pet life"
+        style={{ width: "500px", marginTop: "100px", marginBottom: "100px" }}
+      />
+      <h1>Pet Clinics</h1>
       <Container fluid>
         <Row lg={4} xs={1} md={2} className="g-4">
           {vets

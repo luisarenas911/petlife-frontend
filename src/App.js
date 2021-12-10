@@ -16,6 +16,7 @@ import PetSearch from "./pages/PetSearch";
 import DetailVet from "./pages/DetailVet";
 import NewPet from "./pages/NewPet";
 import Chat from "./pages/Chat";
+import Veterinarians from "./pages/Veterinarians";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
@@ -40,6 +41,7 @@ function App() {
         <Route path="/newpet" component={NewPet} />
         <Route path="/login" component={Login} />
         <Route path="/vets/:id" component={DetailVet} />
+        <Route path="/veterinarians/:id" component={Veterinarians} />
         <Route path="/myprofile" component={MyProfile} />
         <Route path="/petSearch" component={PetSearch} />
         <Route path="/vetSearch" component={VetSearch} />

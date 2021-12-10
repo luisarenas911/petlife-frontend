@@ -1,8 +1,8 @@
 import { useParams } from "react-router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchDetailVet } from "../store/vet/actions";
-import { selectDetailVet } from "../store/vet/selectors";
+import { fetchUser } from "../store/user/actions";
+import { selectDetailUser } from "../store/user/selectors";
 import {
   Card,
   CardMedia,
@@ -44,20 +44,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DetailVet() {
+export default function Veterinarians() {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const detailVet = useSelector(selectDetailVet);
+  const detailVet = useSelector(selectDetailUser);
 
   const vetId = parseInt(useParams().id);
 
   useEffect(() => {
-    dispatch(fetchDetailVet(vetId));
+    dispatch(fetchUser(vetId));
   }, [dispatch, vetId]);
 
   return (
     <div style={{ width: "120vw", margin: "0 auto" }}>
-      <h1>Detail Pet Clinc</h1>
+      <h1>Detail Vet page</h1>
 
       {detailVet ? (
         <div>
@@ -69,6 +69,7 @@ export default function DetailVet() {
               justifyContent: "space-evenly",
               alignItems: "center",
               margin: "10% auto 5% auto",
+              marginLeft: "100px",
             }}
           >
             <CardMedia

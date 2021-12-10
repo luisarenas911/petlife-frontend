@@ -5,6 +5,7 @@ import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
 import { selectUser } from "../../store/user/selectors";
 import { Link } from "react-router-dom";
+import logo from "../../logo/logo.png";
 import {
   AppBar,
   Box,
@@ -19,6 +20,7 @@ import {
   Badge,
   Tooltip,
   makeStyles,
+  Card,
 } from "@material-ui/core";
 
 import MenuIcon from "@mui/icons-material/Menu";
@@ -92,12 +94,10 @@ export default function Navigation() {
         <div className={classes.navBar}>
           <Link to={"/"}>
             <Pets />
+
+            <img src={logo} alt="pet life" style={{ width: "150px" }} />
           </Link>
-          <Badge>Home</Badge>
         </div>
-        <Typography variant="h6" className={classes.logoLg}>
-          Pet Life
-        </Typography>
         <div className={classes.navBar}>
           {user.isVet && token ? (
             <div>

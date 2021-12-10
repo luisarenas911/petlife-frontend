@@ -9,6 +9,7 @@ const initialState = {
   pets: null,
   isVet: null,
   users: [],
+  detailUSer: null,
 };
 
 export default function reducer(state = initialState, action) {
@@ -25,6 +26,8 @@ export default function reducer(state = initialState, action) {
       return { ...state, ...action.payload };
     case "ADD_USERS":
       return { ...state, users: [...action.payload] };
+    case "ADD_USER_DETAIL":
+      return { ...state, detailUser: action.payload };
 
     default:
       return state;
