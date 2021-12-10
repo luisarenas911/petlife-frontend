@@ -1,13 +1,16 @@
 import { useSelector, useDispatch } from "react-redux";
-import { fetchVets } from "../store/vet/actions";
-import { useEffect } from "react";
-import { selectVets } from "../store/vet/selectors";
 
-export default function HomePage() {
-  const vets = useSelector(selectVets);
+import { useEffect } from "react";
+import { fetchUsers } from "../store/user/actions";
+import { selectUsers } from "../store/user/selectors";
+
+export default function VetSearch() {
+  const users = useSelector(selectUsers);
   const dispatch = useDispatch();
+  const vets = users.filter((user) => user.isVet);
+
   useEffect(() => {
-    dispatch(fetchVets);
+    dispatch(fetchUsers);
   }, [dispatch]);
   return (
     <div>

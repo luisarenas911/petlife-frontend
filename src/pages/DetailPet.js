@@ -97,7 +97,7 @@ export default function DetailPet() {
           <Card
             style={{
               display: "flex",
-              width: "65%",
+              width: "100%",
               padding: "10px",
               justifyContent: "space-evenly",
               alignItems: "center",
@@ -108,6 +108,7 @@ export default function DetailPet() {
               className={classes.media}
               image={detailPet.imageUrl}
               title={detailPet.name}
+              style={{ minWidth: "80%", width: "30px", height: "200px" }}
             />
             <Typography variant="h6">
               Name {detailPet.name},<br /> ID {detailPet.id}

@@ -108,7 +108,7 @@ export default function Navigation() {
             </div>
           ) : (
             <div>
-              <Link to="/">
+              <Link to="/vetsearch">
                 <Search />
               </Link>
               <Badge>Vet Search</Badge>
